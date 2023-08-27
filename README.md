@@ -38,10 +38,12 @@ Randomization — Controlling the random generation of numbers by setting the se
 - **Hardware —** Last but not, the type of hardware (or infrastructure) could impact your results (ARM/Intel/Apple processor, etc)
 
 <br>
+
 <figure>
 <img src="images/reproducibility.png" width="100%" align="center"/></a>
 <figcaption> Figure 1 - Shifting code between environments, what could go wrong?</figcaption>
 </figure>
+
 <br>
 
 The first item above, version control, is handled by Git (and Github, Gitlab, Bitbucket, etc.). Randomization, in most cases, can be set by using a seed number (with some edge cases that might be related to OS type). Docker and virtual environment tools provide solutions to package versioning control. In addition, Docker solves potential OS-related issues and supports different hardware configurations.
