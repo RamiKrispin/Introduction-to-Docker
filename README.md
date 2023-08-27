@@ -1,4 +1,4 @@
-# Docker for Data Science  🐳.
+# Docker for Data Scientists  🐳.
 
 🚧WIP 🏗️, pre spell checking🛠️
 
