@@ -37,6 +37,17 @@ Randomization — Controlling the random generation of numbers by setting the se
 - **Operating System (OS) —** Most programming languages, particularly R and Python, use different compilers (e.g., C, C++, etc.) and other built-in OS components. The type of OS and its version could impact the outcome of your code
 - **Hardware —** Last but not, the type of hardware (or infrastructure) could impact your results (ARM/Intel/Apple processor, etc)
 
+In a regular data science workflow, reproducibility is dependent on several factors. One of the most basic and trivial elements of reproducibility is **code versioning**. Using unversioned code makes it impossible to track changes in your code or verify that the same code runs on different environments. 
+
+Another critical factor is **package versioning**. Over time, packages and their dependencies tend to change and evolve, get new features, bug fixes, replace and deprecate old functions. In some cases, running your code using a specific package version may not work or yield the same results as older or newer versions of the package. For example, code written with Pandas 1.x may not work with Pandas 2.x, and vice versa. 
+
+Similarly, **programming languages** tend to change over time, and using code built with older versions may not work or be supported with recent ones. Moreover, different operating systems use different software architectures or run different types of compilers (c, c++, etc.) on the backend. This difference may impact the reproducibility of your code. 
+
+Lastly, the type of **CPU architecture** (ARM, Intel, Apple Silocon, etc.) may impact the underlying software. Some packages or software may require a separate build or may not be supported, which can ultimately affect the reproducibility of your code.
+
+Below is Figure 1, which illustrates the factors affecting code reproducibility when transferring between different environments.
+
+
 <br>
 
 <figure>
@@ -46,12 +57,15 @@ Randomization — Controlling the random generation of numbers by setting the se
 
 <br>
 
-The first item above, version control, is handled by Git (and Github, Gitlab, Bitbucket, etc.). Randomization, in most cases, can be set by using a seed number (with some edge cases that might be related to OS type). Docker and virtual environment tools provide solutions to package versioning control. In addition, Docker solves potential OS-related issues and supports different hardware configurations.
 
-In most cases, the deployment of simple applications would fail due to differences and mismatches of settings between the development and deployment (or target) environments. This is where Docker becomes super handy by enabling you to seamlessly ship your code with the same environment you developed and test your code. 
+Git provides a solution for versioning and monitoring code, ensuring that it can be reproduced correctly regardless of the user or machine it runs on, as long as it is used properly. Docker and similar solutions address the problem of environment mismatches by creating an isolated environment within a container that can be shipped along with the code to any remote machine, such as a desktop, laptop or server, allowing for seamless reproduction of the process.
+
+
+While developing software on different hardware architectures, such as Apple Silicon and Intel-based machines, there may be potential differences in the environment. Docker can partially address this issue by creating a dedicated image for each CPU architecture. However, this approach can be time-consuming and expensive since additional tests are required to ensure that all containers have the exact same characteristics.
+
 
 **Note:** Using a virtual environment is not an alternative to Docker. It actually works well together. While VE is not in the scope of this tutorial, you can read more about the differences between VE and Docker in the following [article](https://medium.com/@rami.krispin/running-python-r-with-docker-vs-virtual-environment-4a62ed36900f).
 
-
+## General Use Cases
 
 
